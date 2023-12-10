@@ -1,0 +1,16 @@
+{
+"domain": "zammad",
+"name": "Zammad",
+"codeowners": [
+    "@tjleach98"
+],
+"config_flow": true,
+"dependencies": [],
+"documentation": "https://github.com/tjleach98/homeassistant-zammad",
+"iot_class": "cloud_polling",
+"issue_tracker": "https://github.com/tjleach98/homeassistant-zammad/issues",
+"requirements": [
+    "zammad-py==3.0.0"
+],
+"version": "0.1"
+}
