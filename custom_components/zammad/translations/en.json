@@ -18,9 +18,6 @@
           "username": "Email/Username",
           "password": "Password"
         }
-      },
-      "init": {
-        "match_user_notifications": "Match Notifications to User ID"
       }
     },
     "error": {
