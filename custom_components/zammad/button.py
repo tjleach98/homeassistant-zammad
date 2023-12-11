@@ -1,12 +1,8 @@
 """Platform for button integration."""
-from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import EntityCategory
-from homeassistant.util.dt import parse_datetime
 from homeassistant.exceptions import HomeAssistantError
 from homeassistant.components.button import (
     ButtonEntity,
-    ButtonEntityDescription,
-    ButtonDeviceClass,
+    ButtonEntityDescription
 )
 
 import logging
