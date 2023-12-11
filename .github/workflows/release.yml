@@ -19,7 +19,7 @@ jobs:
           cd ${{ github.workspace }}/custom_components/zammad
           zip zammad.zip -r ./
 
-      - uses: ncipollo/release-action@v1
+      - uses: ncipollo/release-action@v1.13.0
         with:
           allowUpdates: true
           generateReleaseNotes: true
