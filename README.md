@@ -23,6 +23,9 @@ Go to Settings -> Devices & services -> Add Integration. Select Zammad and enter
 **Warning** 2FA and token authentication not yet available
 
 ## Currently Available Sensors
+### Button
+- Mark All Notificatons Read
+
 ### Binary Sensor
 - User Verified
 - User Out Of Office
