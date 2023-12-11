@@ -1,6 +1,4 @@
 """Summary binary data from Zammad."""
-from __future__ import annotations
-
 from typing import Final
 
 from homeassistant.components.binary_sensor import (
