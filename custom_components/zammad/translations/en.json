@@ -29,42 +29,47 @@
     }
   },
   "entity": {
-      "binary_sensor": {
-          "zammad_self_verified": {
-            "name": "Verified"
-          },
-          "zammad_self_out_of_office": {
-            "name": "Out Of Office"
-          },
-          "zammad_self_active": {
-            "name": "Active"
-          },
-          "zammad_self_vip": {
-            "name": "VIP"
-          }
-        },
-        "sensor": {
-          "zammad_self_user_id": {
-            "name": "User ID"
-          },
-          "zammad_self_user_org_id": {
-            "name": "Organization ID"
-          },
-          "zammad_self_login": {
-            "name": "Login"
-          },
-          "zammad_self_last_login": {
-            "name": "Last Login"
-          },
-          "zammad_self_login_failed": {
-            "name": "Login Failed"
-          },
-          "zammad_self_updated_at": {
-            "name": "Updated At"
-          },
-          "zammad_self_notifications": {
-            "name": "Notifications"
-          }
-        }
+    "binary_sensor": {
+      "zammad_self_verified": {
+        "name": "Verified"
+      },
+      "zammad_self_out_of_office": {
+        "name": "Out Of Office"
+      },
+      "zammad_self_active": {
+        "name": "Active"
+      },
+      "zammad_self_vip": {
+        "name": "VIP"
+      }
+    },
+    "sensor": {
+      "zammad_self_user_id": {
+        "name": "User ID"
+      },
+      "zammad_self_user_org_id": {
+        "name": "Organization ID"
+      },
+      "zammad_self_login": {
+        "name": "Login"
+      },
+      "zammad_self_last_login": {
+        "name": "Last Login"
+      },
+      "zammad_self_login_failed": {
+        "name": "Login Failed"
+      },
+      "zammad_self_updated_at": {
+        "name": "Updated At"
+      },
+      "zammad_self_notifications": {
+        "name": "Notifications"
+      }
+    },
+    "button": {
+      "zammad_self_mark_notifications_read": {
+        "name": "Mark Notifications Read"
+      }
+    }
   }
 }
