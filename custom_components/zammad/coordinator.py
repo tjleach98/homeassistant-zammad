@@ -36,12 +36,17 @@ class ZammadUpdateCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         """Fetch all Zammad data."""
 
         zammad_data = await self.hass.async_add_executor_job(self.client.user.me)
-        self.zammad_user_id = zammad_data['id']
-        zammad_notifications = await self.hass.async_add_executor_job(OnlineNotification(connection=self.client).all)
-        
+        self.zammad_user_id = zammad_data["id"]
+        zammad_notifications = await self.hass.async_add_executor_job(
+            OnlineNotification(connection=self.client).all
+        )
+
         unread_notifs = 0
         for notification in zammad_notifications:
-            if not notification["seen"] and notification['user_id'] == self.zammad_user_id:
+            if (
+                not notification["seen"]
+                and notification["user_id"] == self.zammad_user_id
+            ):
                 unread_notifs += 1
 
         zammad_data["notifications"] = unread_notifs

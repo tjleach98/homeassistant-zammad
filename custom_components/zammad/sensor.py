@@ -22,6 +22,7 @@ from .entity import ZammadEntity
 
 _LOGGER = logging.getLogger(__name__)
 
+
 async def async_setup_entry(hass, entry, async_add_entities):
     """Set up the Zammad sensors."""
     coordinator: ZammadUpdateCoordinator = hass.data[DOMAIN][entry.entry_id]
@@ -33,13 +34,15 @@ async def async_setup_entry(hass, entry, async_add_entities):
         ]
     )
 
+
 @dataclass
 class ZammadSensorEntityDescription(SensorEntityDescription):
     """Describes Zammad sensor entity."""
 
-    value_fn: Callable[[str | int | float], str | int | float | datetime] = (
-        lambda value: value
-    )
+    value_fn: Callable[
+        [str | int | float], str | int | float | datetime
+    ] = lambda value: value
+
 
 SENSORS: Final[list[ZammadSensorEntityDescription]] = [
     ZammadSensorEntityDescription(
@@ -63,20 +66,21 @@ SENSORS: Final[list[ZammadSensorEntityDescription]] = [
         key="last_login",
         translation_key="zammad_self_last_login",
         device_class=SensorDeviceClass.TIMESTAMP,
-        value_fn=parse_datetime
+        value_fn=parse_datetime,
     ),
     ZammadSensorEntityDescription(
         key="updated_at",
         translation_key="zammad_self_updated_at",
         device_class=SensorDeviceClass.TIMESTAMP,
-        value_fn=parse_datetime
+        value_fn=parse_datetime,
     ),
     ZammadSensorEntityDescription(
         key="notifications",
         translation_key="zammad_self_notifications",
         state_class=SensorStateClass.MEASUREMENT,
-    )
+    ),
 ]
+
 
 class ZammadSensor(ZammadEntity, SensorEntity):
     """Represents a Zammad sensor."""

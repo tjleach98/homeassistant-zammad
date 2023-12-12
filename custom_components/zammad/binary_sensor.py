@@ -32,6 +32,7 @@ BINARY_SENSORS: Final[list[BinarySensorEntityDescription]] = [
     ),
 ]
 
+
 async def async_setup_entry(
     hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
 ) -> None:
@@ -44,6 +45,7 @@ async def async_setup_entry(
             if sensor.key in coordinator.data
         ]
     )
+
 
 class ZammadBinarySensor(ZammadEntity, BinarySensorEntity):
     """Represents a Nextcloud binary sensor."""

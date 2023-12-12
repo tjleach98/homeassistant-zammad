@@ -1,5 +1,4 @@
 """Config flow to configure the Zammad integration."""
-
 from homeassistant import config_entries
 from homeassistant.const import CONF_URL, CONF_USERNAME, CONF_PASSWORD
 
@@ -21,6 +20,7 @@ ZAMMAD_SCHEMA = vol.Schema(
     }
 )
 
+
 class ZammadConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     """Handle a Zammad config flow."""
 
@@ -37,7 +37,7 @@ class ZammadConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     ) -> Optional[dict[str, str]]:
         """Check to see if provided creds are accepted by Zammad"""
         try:
-            url      = user_input[CONF_URL]
+            url = user_input[CONF_URL]
             username = user_input[CONF_USERNAME]
             password = user_input[CONF_PASSWORD]
 
