@@ -1,3 +1,9 @@
+[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/tjleach98/homeassistant-zammad/.github%2Fworkflows%2Fvalidate.yml?style=flat-square&label=validate)](https://github.com/tjleach98/homeassistant-zammad/actions/workflows/validate.yml)
+[![GitHub Release](https://img.shields.io/github/release/tjleach98/homeassistant-zammad.svg?style=flat-square)](https://github.com/tjleach98/homeassistant-zammad/releases)
+[![GitHub](https://img.shields.io/github/license/tjleach98/homeassistant-zammad.svg?style=flat-square)](LICENSE)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg?style=flat-square)](https://github.com/psf/black)
+[![Downloads](https://img.shields.io/github/downloads/tjleach98/homeassistant-zammad/total?style=flat-square)](https://github.com/tjleach98/homeassistant-zammad/releases)
+
 # Zammad Home Assistant Integration
 This is a basic Home Assistant integration for Zammad. It uses the `zammad_py` library available [here](https://github.com/joeirimpan/zammad_py)
 
