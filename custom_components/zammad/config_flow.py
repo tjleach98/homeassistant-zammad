@@ -5,10 +5,11 @@ from homeassistant.const import CONF_URL, CONF_USERNAME, CONF_PASSWORD
 import logging
 from typing import Any, Mapping, Optional
 import voluptuous as vol
-from urllib.error import HTTPError
+from requests.exceptions import HTTPError
 from zammad_py import ZammadAPI
 
 from .const import DOMAIN
+from .utils import get_url_from_options
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -36,8 +37,12 @@ class ZammadConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         self, user_input: Mapping[str, Any]
     ) -> Optional[dict[str, str]]:
         """Check to see if provided creds are accepted by Zammad"""
+        if not user_input[CONF_URL].startswith("http"):
+            _LOGGER.error(f"Invalid url missing protocol: {user_input[CONF_URL]}")
+            return {"base": "invalid_url_protocol"}
+
         try:
-            url = user_input[CONF_URL]
+            url = get_url_from_options(user_input[CONF_URL])
             username = user_input[CONF_USERNAME]
             password = user_input[CONF_PASSWORD]
 

@@ -5,7 +5,7 @@
         "title": "Configure Zammad",
         "description": "Enter your Zammad credentials",
         "data": {
-          "url": "URL (include /api/v1)",
+          "url": "URL",
           "username": "Email",
           "password": "Password"
         }
@@ -14,14 +14,15 @@
         "title": "Configure Zammad",
         "description": "Enter your Zammad credentials",
         "data": {
-          "url": "URL (include /api/v1)",
+          "url": "URL",
           "username": "Email/Username",
           "password": "Password"
         }
       }
     },
     "error": {
-      "invalid_auth": "Auth Failed"
+      "invalid_auth": "Auth Failed",
+      "invalid_url_protocol": "URL must include http/https"
     },
     "abort": {
       "already_configured": "Already Configured Account",

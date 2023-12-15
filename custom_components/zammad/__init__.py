@@ -9,15 +9,18 @@ from homeassistant.const import CONF_URL, CONF_USERNAME, CONF_PASSWORD
 
 import asyncio
 import logging
-from urllib.error import HTTPError
+import json
+from requests.exceptions import HTTPError
 from zammad_py import ZammadAPI
 
 from .const import (
     DOMAIN,
     PLATFORMS,
     STARTUP_MESSAGE,
+    HUMAN_ERR_MSG_FIELD,
 )
 from .coordinator import ZammadUpdateCoordinator
+from .utils import get_url_from_options
 
 _LOGGER: logging.Logger = logging.getLogger(__package__)
 
@@ -28,7 +31,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
         hass.data.setdefault(DOMAIN, {})
         _LOGGER.info(STARTUP_MESSAGE)
 
-    url = entry.data.get(CONF_URL)
+    url = get_url_from_options(entry.data.get(CONF_URL))
     username = entry.data.get(CONF_USERNAME)
     password = entry.data.get(CONF_PASSWORD)
 
@@ -36,7 +39,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
         client = ZammadAPI(url=url, username=username, password=password)
         await hass.async_add_executor_job(client.user.me)
     except HTTPError as exc:
-        raise ConfigEntryAuthFailed("Credentials expired!") from exception
+        error_json = json.loads(exc.args[0])
+        raise ConfigEntryAuthFailed(error_json[HUMAN_ERR_MSG_FIELD])
     except ClientConnectorError as exception:
         raise ConfigEntryNotReady from exception
 
